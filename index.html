@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBNUPBPFW6OMQMtwhdlmsb6sGgvYOtlZs4",
+      authDomain: "musicplayer-97726.firebaseapp.com",
+      databaseURL: "https://musicplayer-97726.firebaseio.com",
+      projectId: "musicplayer-97726",
+      storageBucket: "musicplayer-97726.appspot.com",
+      messagingSenderId: "609945980838",
+      appId: "1:609945980838:web:08579cd088e44426914967",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <body>
+    <label>Email</label>
+    <input id="email" type="text" />
+    <label>Password</label>
+    <input id="password" type="password" />
+    <button onclick="login()">Login</button>
+  </body>
+  <script>
+    function login() {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value)
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        });
+    }
+  </script>
+</html>
